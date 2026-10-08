@@ -5,18 +5,18 @@ import json, os
 from html import escape
 
 CONFIG = {
-    "handle": "chungywungy",
-    "github_user": "YOUR-GITHUB-USERNAME",   # <- change me
-    "tagline": "game modding / 3d art / horror, built properly",
+    "handle": "Chungywungy",
+    "github_user": "Chungwungy",   # <- change me
+    "tagline": "I make things",
     "about": [   # (key, value) rows for the profile panel
-        ("making",  "custom game content and player models"),
-        ("tools",   "blender, c#, python, git"),
+        ("Languages",  "Python, Java, Javascript, C, Typescript"),
+        ("",   "blender, c#, python, git"),
         ("themes",  "horror aesthetics + technical modding"),
         ("status",  "open to collabs and mod ideas"),
     ],
     "now": [     # (marker, text) — marker: ">" active, "~" paused, "+" shipped
-        (">", "GTFO player model mod: springtrap-inspired animatronic"),
-        (">", "learning: rigging pipeline and in-game testing"),
+        (">", "BCIT: Computer Systems Technology"),
+        (">", ""),
         ("~", "add another project here"),
     ],
     "stack": {   # group -> tags
@@ -25,10 +25,10 @@ CONFIG = {
         "code":    ["python", "java", "git"],
     },
     "reach": [   # (label, url)
-        ("github",  "https://github.com/YOUR-GITHUB-USERNAME"),
-        ("email",   "mailto:you@example.com"),
-        ("website", "https://example.com"),
-        ("discord", "https://discord.com/users/YOUR-ID"),
+        ("github",  "https://github.com/Chungywungy"),
+        ("email",   "mailto:fshariff3@my.bcit.ca"),
+        ("website", ""),
+        ("discord", ""),
     ],
 }
 
