@@ -103,22 +103,25 @@ def stack(c, p):
     return svg(W, h, out, p)
 
 def activity(stats, p):
-    h = 190; out = ""
+    h = 200; out = ""
     items = [("repos", stats.get("repos", 0)), ("stars", stats.get("stars", 0)),
-             ("followers", stats.get("followers", 0)), ("commits/yr", stats.get("commits", 0))]
+             ("followers", stats.get("followers", 0)), ("recent commits", stats.get("commits", 0))]
     for i, (k, v) in enumerate(items):
         x = 28 + i * 200
         out += (f'<text x="{x}" y="58" font-size="34" font-weight="700" fill="{p["accent"]}">{v}</text>'
                 f'<text x="{x}" y="80" font-size="13" fill="{p["dim"]}">{e(k)}</text>')
-    langs = stats.get("languages", {})
+    langs = stats.get("languages", {})   # language -> number of projects using it
     total = sum(langs.values()) or 1
-    out += f'<text x="28" y="122" font-size="13" fill="{p["dim"]}">languages</text>'
+    out += f'<text x="28" y="122" font-size="13" fill="{p["dim"]}">projects by language</text>'
     shades = [p["accent"], p["alert"], p["text"], p["dim"], p["ghost"]]
-    x, bw = 28, W - 56
+    x, bw, lx = 28, W - 56, 28
     for i, (name, n) in enumerate(sorted(langs.items(), key=lambda kv: -kv[1])[:5]):
         w = max(4, bw * n / total)
         out += f'<rect x="{x:.1f}" y="134" width="{w:.1f}" height="10" fill="{shades[i]}"/>'
-        out += f'<text x="{x:.1f}" y="168" font-size="12" fill="{p["text"]}">{e(name)} {100*n/total:.0f}%</text>'
+        label = f"{name} {n}"
+        out += (f'<rect x="{lx}" y="164" width="10" height="10" fill="{shades[i]}"/>'
+                f'<text x="{lx+16}" y="173" font-size="12" fill="{p["text"]}">{e(label)}</text>')
+        lx += int(len(label) * 7.4 + 44)
         x += w
     return svg(W, h, out, p)
 

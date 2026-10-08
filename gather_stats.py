@@ -23,10 +23,19 @@ except urllib.error.HTTPError as err:
     print(f"GitHub API error {err.code} ({err.reason}); keeping the existing stats.json.")
     sys.exit(0)
 
+
 langs = {}
 for r in repos:
-    if not r["fork"] and r["language"]:
-        langs[r["language"]] = langs.get(r["language"], 0) + max(r["size"], 1)
+    if r["fork"] or r["archived"]:
+        continue
+    try:
+        by_bytes = get(r["languages_url"])
+        total = sum(by_bytes.values()) or 1
+        used = [l for l, n in by_bytes.items() if n / total >= 0.05]
+    except urllib.error.HTTPError:
+        used = [r["language"]] if r["language"] else []
+    for l in used:
+        langs[l] = langs.get(l, 0) + 1
 commits = sum(len(ev["payload"].get("commits", [])) for ev in events if ev["type"] == "PushEvent")
 json.dump({"repos": u["public_repos"], "followers": u["followers"],
            "stars": sum(r["stargazers_count"] for r in repos),
