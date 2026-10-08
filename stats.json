@@ -4,11 +4,13 @@
   "stars": 6,
   "commits": 0,
   "languages": {
-    "JavaScript": 4297,
-    "C": 9,
-    "HTML": 25873,
-    "Python": 85,
-    "Java": 5,
-    "GDScript": 1808
+    "JavaScript": 7,
+    "HTML": 13,
+    "C": 2,
+    "CSS": 6,
+    "Python": 3,
+    "CMake": 1,
+    "Java": 1,
+    "GDScript": 1
   }
 }
