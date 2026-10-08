@@ -6,7 +6,7 @@ from html import escape
 
 CONFIG = {
     "handle": "Chungywungy",
-    "github_user": "Chungwungy",   # <- change me
+    "github_user": "Chungywungy",   # <- change me
     "tagline": "I make things",
     "about": [   # (key, value) rows for the profile panel
         ("Languages",  "Python, Java, Javascript, C, Typescript"),
