@@ -8,13 +8,13 @@ CONFIG = {
     "handle": "Chungywungy",
     "github_user": "Chungywungy",   # <- change me
     "tagline": "I make things",
-    "about": [   # (key, value) rows for the profile panel
-        ("Languages",  "Python, Java, Javascript, C, Typescript"),
-        ("Hobbies",   "Reading, Gaming, Running, Baking"),
-    ],
     "now": [     # (marker, text) — marker: ">" active, "~" paused, "+" shipped
         (">", "BCIT: Computer Systems Technology"),
         (">", "Learning: Java, C, PostgreSQL"),
+    ],
+    "past": [
+        ("tower-defense", "https://github.com/you/tower-defense", "Java/JavaFX game"),
+        ("some-mod", "https://github.com/you/some-mod"),
     ],
     "stack": {   # group -> tags
         "Languages":     ["Python", "JavaScript", "HTML", "CSS", "Java", "C"],
@@ -139,18 +139,25 @@ def main():
     os.makedirs("assets", exist_ok=True)
     stats = json.load(open("stats.json")) if os.path.exists("stats.json") else {}
     for mode, p in PAL.items():
-        files = {"hero": hero(c, p), "profile": profile(c, p), "now": now(c, p),
+        files = {"hero": hero(c, p), "now": now(c, p),
                  "stack": stack(c, p), "activity": activity(stats, p)}
-        for t in ("about", "now", "stack", "activity", "reach"):
+        for t in ("now", "past", "stack", "activity", "reach"):
             files["bar-" + t] = bar(t, p)
         for label, _ in c["reach"]:
             files["btn-" + label] = button(label, p)[1]
         for n, s in files.items():
             open(f"assets/{n}-{mode}.svg", "w").write(s)
-    parts = [pic("hero", c["handle"])]
-    for bar_n, panel_n in (("about", "profile"), ("now", "now"), ("stack", "stack"), ("activity", "activity")):
+    parts = [pic("hero", c["handle"]), pic("bar-now", "now") + "\n" + pic("now", "now")]
+    # links don't work inside SVG images, so "past" is a real markdown list
+    items = []
+    for item in c.get("past", []):
+        name, url, *rest = item
+        items.append(f"- [{name}]({url})" + (f": {rest[0]}" if rest and rest[0] else ""))
+    if items:
+        parts.append(pic("bar-past", "past") + "\n\n" + "\n".join(items))
+    for bar_n, panel_n in (("stack", "stack"), ("activity", "activity")):
         parts.append(pic("bar-" + bar_n, bar_n) + "\n" + pic(panel_n, panel_n))
-    btns = "".join(f'<a href="{u}">' + pic("btn-" + l, l).replace("\n", "") + "</a>" for l, u in c["reach"])
+    btns = "".join(f'<a href="{u}">' + pic("btn-" + l, l).replace("\n", "") + "</a>" for l, u in c["reach"] if u)
     parts.append(pic("bar-reach", "reach") + "\n" + btns)
     open("README.md", "w").write("\n\n".join(parts) + "\n")
 

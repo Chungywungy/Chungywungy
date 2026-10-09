@@ -4,15 +4,6 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/bar-about-dark.svg">
-  <img alt="about" src="assets/bar-about-light.svg">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/profile-dark.svg">
-  <img alt="profile" src="assets/profile-light.svg">
-</picture>
-
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/bar-now-dark.svg">
   <img alt="now" src="assets/bar-now-light.svg">
 </picture>
@@ -20,6 +11,14 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/now-dark.svg">
   <img alt="now" src="assets/now-light.svg">
 </picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/bar-past-dark.svg">
+  <img alt="past" src="assets/bar-past-light.svg">
+</picture>
+
+- [tower-defense](https://github.com/you/tower-defense): Java/JavaFX game
+- [some-mod](https://github.com/you/some-mod)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/bar-stack-dark.svg">
@@ -43,4 +42,4 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/bar-reach-dark.svg">
   <img alt="reach" src="assets/bar-reach-light.svg">
 </picture>
-<a href="https://github.com/Chungywungy"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-github-dark.svg">  <img alt="github" src="assets/btn-github-light.svg"></picture></a><a href="mailto:fshariff3@my.bcit.ca"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-email-dark.svg">  <img alt="email" src="assets/btn-email-light.svg"></picture></a><a href=""><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-website-dark.svg">  <img alt="website" src="assets/btn-website-light.svg"></picture></a><a href=""><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-discord-dark.svg">  <img alt="discord" src="assets/btn-discord-light.svg"></picture></a>
+<a href="https://github.com/Chungywungy"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-github-dark.svg">  <img alt="github" src="assets/btn-github-light.svg"></picture></a><a href="mailto:fshariff3@my.bcit.ca"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-email-dark.svg">  <img alt="email" src="assets/btn-email-light.svg"></picture></a>
