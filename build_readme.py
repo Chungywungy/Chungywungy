@@ -103,7 +103,7 @@ def stack(c, p):
 def activity(stats, p):
     h = 200; out = ""
     items = [("repos", stats.get("repos", 0)), ("stars", stats.get("stars", 0)),
-             ("followers", stats.get("followers", 0)), ("recent commits", stats.get("commits", 0))]
+             ("commits this year", stats.get("commits_year", 0)), ("commits today", stats.get("commits_today", 0))]
     for i, (k, v) in enumerate(items):
         x = 28 + i * 200
         out += (f'<text x="{x}" y="58" font-size="34" font-weight="700" fill="{p["accent"]}">{v}</text>'

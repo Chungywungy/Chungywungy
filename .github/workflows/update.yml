@@ -1,6 +1,6 @@
 name: update-readme
 on:
-  schedule: [{cron: "0 6 * * 1"}]
+  schedule: [{cron: "0 */3 * * *"}]
   workflow_dispatch:
 permissions:
   contents: write
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
-        with: {python-version: "3.14"}
+        with: {python-version: "3.12"}
       - name: Fetch stats
         run: python gather_stats.py
         env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
