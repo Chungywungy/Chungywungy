@@ -13,8 +13,11 @@ CONFIG = {
         (">", "Learning: Java, C, PostgreSQL"),
     ],
     "past": [
-        ("tower-defense", "https://github.com/you/tower-defense", "Java/JavaFX game"),
-        ("some-mod", "https://github.com/you/some-mod"),
+        ("Find Your Cool", "https://github.com/Chungywungy/2800-202610-DTC02", "Web App"),
+        ("Eternal Tower", "https://github.com/Chungywungy/PythonProject-1510-Term-Project-Fawaz",
+         "Terminal Turn-Based RPG"),
+        ("Parse4u", "https://github.com/Chungywungy/BCIT-Hackathon", "Python Module"),
+        ("Rift Rewind", "https://github.com/Legus-Yeung/rift-rewind-hackathon", "Gameplay Summarizer"),
     ],
     "stack": {   # group -> tags
         "Languages":     ["Python", "JavaScript", "HTML", "CSS", "Java", "C"],

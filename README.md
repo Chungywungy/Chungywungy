@@ -16,8 +16,10 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/bar-past-dark.svg">
   <img alt="past" src="assets/bar-past-light.svg">
 </picture>
-<a href="https://github.com/you/tower-defense"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-0-dark.svg">  <img alt="tower-defense" src="assets/past-0-light.svg"></picture></a><br>
-<a href="https://github.com/you/some-mod"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-1-dark.svg">  <img alt="some-mod" src="assets/past-1-light.svg"></picture></a>
+<a href="https://github.com/Chungywungy/2800-202610-DTC02"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-0-dark.svg">  <img alt="Find Your Cool" src="assets/past-0-light.svg"></picture></a><br>
+<a href="https://github.com/Chungywungy/PythonProject-1510-Term-Project-Fawaz"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-1-dark.svg">  <img alt="Eternal Tower" src="assets/past-1-light.svg"></picture></a><br>
+<a href="https://github.com/Chungywungy/BCIT-Hackathon"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-2-dark.svg">  <img alt="Parse4u" src="assets/past-2-light.svg"></picture></a><br>
+<a href="https://github.com/Legus-Yeung/rift-rewind-hackathon"><picture>  <source media="(prefers-color-scheme: dark)" srcset="assets/past-3-dark.svg">  <img alt="Rift Rewind" src="assets/past-3-light.svg"></picture></a>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/bar-stack-dark.svg">
