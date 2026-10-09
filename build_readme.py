@@ -134,27 +134,40 @@ def pic(name, alt):
     return (f'<picture>\n  <source media="(prefers-color-scheme: dark)" srcset="{base}-dark.svg">\n'
             f'  <img alt="{alt}" src="{base}-light.svg">\n</picture>')
 
+def past_row(name, url, desc, p):
+    h = 64
+    shown = url.replace("https://", "").replace("http://", "").rstrip("/")
+    desc = desc if len(desc) <= 80 else desc[:77] + "..."
+    y = 32 if desc else 37   # centre the title when there's no description
+    out = (f'<rect x="28" y="{y-10}" width="10" height="10" fill="{p["accent"]}"/>'
+           f'<text x="50" y="{y}" font-size="15" font-weight="700" fill="{p["text"]}">{e(name)}</text>'
+           f'<text x="{W-28}" y="{y}" font-size="12" text-anchor="end" fill="{p["dim"]}">{e(shown)}</text>')
+    if desc:
+        out += f'<text x="50" y="52" font-size="13" fill="{p["dim"]}">{e(desc)}</text>'
+    return svg(W, h, out, p)
+
 def main():
     c = CONFIG
     os.makedirs("assets", exist_ok=True)
     stats = json.load(open("stats.json")) if os.path.exists("stats.json") else {}
+    past = [(list(i) + [""])[:3] for i in c.get("past", [])]   # (name, url, description)
     for mode, p in PAL.items():
         files = {"hero": hero(c, p), "now": now(c, p),
                  "stack": stack(c, p), "activity": activity(stats, p)}
         for t in ("now", "past", "stack", "activity", "reach"):
             files["bar-" + t] = bar(t, p)
+        for i, (name, url, desc) in enumerate(past):
+            files[f"past-{i}"] = past_row(name, url, desc, p)
         for label, _ in c["reach"]:
             files["btn-" + label] = button(label, p)[1]
         for n, s in files.items():
             open(f"assets/{n}-{mode}.svg", "w").write(s)
     parts = [pic("hero", c["handle"]), pic("bar-now", "now") + "\n" + pic("now", "now")]
-    # links don't work inside SVG images, so "past" is a real markdown list
-    items = []
-    for item in c.get("past", []):
-        name, url, *rest = item
-        items.append(f"- [{name}]({url})" + (f": {rest[0]}" if rest and rest[0] else ""))
-    if items:
-        parts.append(pic("bar-past", "past") + "\n\n" + "\n".join(items))
+    if past:
+        # each row is its own image wrapped in a link, same trick as the buttons
+        rows = "<br>\n".join(f'<a href="{u}">' + pic(f"past-{i}", n).replace("\n", "") + "</a>"
+                             for i, (n, u, _) in enumerate(past))
+        parts.append(pic("bar-past", "past") + "\n" + rows)
     for bar_n, panel_n in (("stack", "stack"), ("activity", "activity")):
         parts.append(pic("bar-" + bar_n, bar_n) + "\n" + pic(panel_n, panel_n))
     btns = "".join(f'<a href="{u}">' + pic("btn-" + l, l).replace("\n", "") + "</a>" for l, u in c["reach"] if u)
