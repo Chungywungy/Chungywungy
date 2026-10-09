@@ -10,19 +10,16 @@ CONFIG = {
     "tagline": "I make things",
     "about": [   # (key, value) rows for the profile panel
         ("Languages",  "Python, Java, Javascript, C, Typescript"),
-        ("",   "blender, c#, python, git"),
-        ("themes",  "horror aesthetics + technical modding"),
-        ("status",  "open to collabs and mod ideas"),
+        ("Hobbies",   "Reading, Gaming, Running, Baking"),
     ],
     "now": [     # (marker, text) — marker: ">" active, "~" paused, "+" shipped
         (">", "BCIT: Computer Systems Technology"),
-        (">", ""),
-        ("~", "add another project here"),
+        (">", "Learning: Java, C, PostgreSQL"),
     ],
     "stack": {   # group -> tags
-        "art":     ["blender", "substance painter", "photoshop"],
-        "modding": ["unity", "c#", "bepinex"],
-        "code":    ["python", "java", "git"],
+        "Languages":     ["Python", "JavaScript", "HTML", "CSS", "Java", "C"],
+        "Frameworks & Databases": ["Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL"],
+        "Tools & platforms":    ["AWS", "Linux", "Git"],
     },
     "reach": [   # (label, url)
         ("github",  "https://github.com/Chungywungy"),
