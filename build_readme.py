@@ -18,8 +18,9 @@ CONFIG = {
     ],
     "stack": {   # group -> tags
         "Languages":     ["Python", "JavaScript", "HTML", "CSS", "Java", "C"],
-        "Frameworks & Databases": ["Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL"],
-        "Tools & platforms":    ["AWS", "Linux", "Git"],
+        "Frameworks": ["Next.js", "Node.js", "Express"],
+        "Databases": ["MongoDB", "PostgreSQL", "Firebase"],
+        "Tools":    ["AWS", "Linux", "Git"],
     },
     "reach": [   # (label, url)
         ("github",  "https://github.com/Chungywungy"),
