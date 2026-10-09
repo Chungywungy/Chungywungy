@@ -2,15 +2,17 @@
   "repos": 27,
   "followers": 0,
   "stars": 6,
+  "contributed": 2,
   "commits": 0,
   "languages": {
-    "JavaScript": 7,
-    "HTML": 13,
+    "JavaScript": 8,
+    "HTML": 14,
     "C": 2,
     "CSS": 6,
     "Python": 3,
     "CMake": 1,
     "Java": 1,
-    "GDScript": 1
+    "GDScript": 1,
+    "TypeScript": 1
   }
 }
